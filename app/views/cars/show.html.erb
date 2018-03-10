@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plate:</strong>
+  <%= @car.plate %>
+</p>
+
+<p>
+  <strong>Colour:</strong>
+  <%= @car.colour %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @car.business %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>

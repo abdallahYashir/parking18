@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @park.number %>
+</p>
+
+<p>
+  <strong>Time start:</strong>
+  <%= @park.time_start %>
+</p>
+
+<p>
+  <strong>Time end:</strong>
+  <%= @park.time_end %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @park.total_amount %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @park.comments %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @park.business %>
+</p>
+
+<%= link_to 'Edit', edit_park_path(@park) %> |
+<%= link_to 'Back', parks_path %>

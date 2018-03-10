@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount per hour:</strong>
+  Rs <%= @config.amount_per_hour %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @config.business.name %>
+</p>
+
+<%= link_to 'Edit', edit_config_path(@config) %> |
+<%= link_to 'Back', configs_path %>
