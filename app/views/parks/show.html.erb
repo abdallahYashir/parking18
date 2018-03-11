@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Car Number:</strong>
   <%= @park.number %>
 </p>
 
 <p>
   <strong>Time start:</strong>
-  <%= @park.time_start %>
+  <%= @park.time_start.strftime("%B %d %Y") %>
 </p>
 
 <p>
   <strong>Time end:</strong>
-  <%= @park.time_end %>
+  <%= @park.time_end.strftime("%B %d %Y") %>
 </p>
 
 <p>
   <strong>Total amount:</strong>
-  <%= @park.total_amount %>
+  Rs <%= @amount.round %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong>Business:</strong>
-  <%= @park.business %>
+  <%= @park.business.name %>
 </p>
 
 <%= link_to 'Edit', edit_park_path(@park) %> |

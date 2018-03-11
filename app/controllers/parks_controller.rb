@@ -10,6 +10,7 @@ class ParksController < ApplicationController
   # GET /parks/1
   # GET /parks/1.json
   def show
+    @amount = ((@park.time_end - @park.time_start) / 3600 ) * Config.last.amount_per_hour
   end
 
   # GET /parks/new

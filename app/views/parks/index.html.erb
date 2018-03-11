@@ -19,7 +19,9 @@
     <% @parks.each do |park| %>
       <tr>
         <td><%= park.number %></td>
-        <td><%= park.time_start %></td>
+        <td>
+					<%= park.time_start.strftime("%B %d %Y") %>
+				</td>
         <td><%= park.time_end %></td>
         <td><%= park.total_amount %></td>
         <td><%= park.comments %></td>
