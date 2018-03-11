@@ -1,47 +1,9 @@
-<%= form_with(model: park, local: true) do |form| %>
-  <% if park.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(park.errors.count, "error") %> prohibited this park from being saved:</h2>
-
-      <ul>
-      <% park.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.number_field :number, id: :park_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time_start %>
-    <%= form.datetime_select :time_start, id: :park_time_start %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time_end %>
-    <%= form.datetime_select :time_end, id: :park_time_end %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_amount %>
-    <%= form.number_field :total_amount, id: :park_total_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_area :comments, id: :park_comments %>
-  </div>
-
-  <div class="field">
-    <%= form.label :business_id %>
-    <%= form.text_field :business_id, id: :park_business_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for @park do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+  <%= f.input :number %>
+  <%= f.input :time_start %>
+  <%= f.input :time_end %>
+  <%= f.input :comments %>
+  <%= f.association :business %>
+  <%= f.button :submit %>
 <% end %>

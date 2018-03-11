@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'active_link_to'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
