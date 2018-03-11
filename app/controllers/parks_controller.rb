@@ -21,6 +21,7 @@ class ParksController < ApplicationController
 
   # GET /parks/1/edit
   def edit
+
   end
 
   # POST /parks
