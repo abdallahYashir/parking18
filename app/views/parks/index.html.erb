@@ -8,8 +8,9 @@
       <th>Number</th>
       <th>Time start</th>
       <th>Time end</th>
+      <th>Duration</th>
       <th>Total amount</th>
-      <th>Comments</th>
+      <th>Payment</th>
       <th>Business</th>
       <th colspan="3"></th>
     </tr>
@@ -20,11 +21,14 @@
       <tr>
         <td><%= park.number %></td>
         <td>
-					<%= park.time_start.strftime("%B %d %Y") %>
+					<%= park.time_start.strftime("%B %d %Y %H %M %S") %>
 				</td>
-        <td><%= park.time_end %></td>
-        <td><%= park.total_amount %></td>
-        <td><%= park.comments %></td>
+        <td>
+					<%= park.time_end.strftime("%B %d %Y %H %M %S") %>
+				</td>
+        <td><%= number_with_precision((park.time_end - park.time_start) / 3600, precision: 2) %> hr</td>
+        <td>Rs <%= number_with_precision(((park.time_end - park.time_start) / 3600) * @amount_per_hour, precision: 2) %></td>
+        <td><%= park.paid ? 'Yes' : 'No' %></td>
         <td><%= park.business.name %></td>
         <td><%= link_to 'Show', park %></td>
         <td><%= link_to 'Edit', edit_park_path(park) %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310091755) do
+ActiveRecord::Schema.define(version: 20180311113949) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20180310091755) do
     t.integer "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "paid", default: false
     t.index ["business_id"], name: "index_parks_on_business_id"
   end
 

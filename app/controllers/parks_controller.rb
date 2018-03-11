@@ -5,6 +5,7 @@ class ParksController < ApplicationController
   # GET /parks.json
   def index
     @parks = Park.all
+    @amount_per_hour = Config.last.amount_per_hour
   end
 
   # GET /parks/1
@@ -73,3 +74,4 @@ class ParksController < ApplicationController
       params.require(:park).permit(:number, :time_start, :time_end, :total_amount, :comments, :business_id)
     end
 end
+
