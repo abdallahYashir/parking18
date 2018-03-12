@@ -1,5 +1,6 @@
 class ParksController < ApplicationController
   before_action :set_park, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /parks
   # GET /parks.json

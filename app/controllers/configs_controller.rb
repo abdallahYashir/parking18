@@ -1,5 +1,6 @@
 class ConfigsController < ApplicationController
   before_action :set_config, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /configs
   # GET /configs.json
