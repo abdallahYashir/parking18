@@ -1,5 +1,10 @@
 # README
 
+## ToDo
+- Remove new business link if signed user already has business
+- User should be able to show and edit business
+-
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
