@@ -11,15 +11,7 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-
     check_user_access params[:id]
-    
-    #@business = Business.where(id: params[:id]).last
-
-    #unless @business.user_id == current_user.id
-      #redirect_to businesses_url
-    #end
-
   end
 
   # GET /businesses/new
@@ -31,13 +23,6 @@ class BusinessesController < ApplicationController
   # GET /businesses/1/edit
   def edit
     check_user_access params[:id]
-
-    #@business = Business.where(id: params[:id]).last
-
-    #unless @business.user_id == current_user.id
-      #redirect_to businesses_url
-    #end
-
   end
 
   # POST /businesses

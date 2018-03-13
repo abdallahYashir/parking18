@@ -26,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Business', new_business_path %>
+<% if @businesses.length === 0 %>
+  <%= link_to 'New Business', new_business_path %>
+<% end %>
