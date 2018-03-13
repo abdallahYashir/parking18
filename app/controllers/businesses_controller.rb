@@ -11,21 +11,33 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    user = User.find_by_id(current_user)
-    unless params[:id] === user.business_id
-      redirect_to businesses_url
-    end
+
+    check_user_access params[:id]
+    
+    #@business = Business.where(id: params[:id]).last
+
+    #unless @business.user_id == current_user.id
+      #redirect_to businesses_url
+    #end
+
   end
 
   # GET /businesses/new
   def new
     @business = Business.new
-    User.
     logger.debug @business
   end
 
   # GET /businesses/1/edit
   def edit
+    check_user_access params[:id]
+
+    #@business = Business.where(id: params[:id]).last
+
+    #unless @business.user_id == current_user.id
+      #redirect_to businesses_url
+    #end
+
   end
 
   # POST /businesses
@@ -36,7 +48,6 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else
@@ -71,6 +82,14 @@ class BusinessesController < ApplicationController
   end
 
   private
+  
+    def check_user_access param_id
+      @business = Business.where(id: param_id).last
+      unless @business.user_id == current_user.id
+        redirect_to businesses_url
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find(params[:id])
