@@ -40,6 +40,7 @@ class ConfigsController < ApplicationController
   # POST /configs.json
   def create
     @config = Config.new(config_params)
+    @config.business_id = get_user_business.first.id
 
     respond_to do |format|
       if @config.save

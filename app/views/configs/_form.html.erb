@@ -16,11 +16,6 @@
     <%= form.number_field :amount_per_hour, id: :config_amount_per_hour %>
   </div>
 
-  <div class="field">
-    <%= form.label :business_id %>
-    <%= form.select :business_id, options_for_select(Business.all.map{|s|[s.name, s.id]}, {class: 'form-control'})  %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
