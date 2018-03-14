@@ -30,6 +30,7 @@ class ParksController < ApplicationController
   # POST /parks.json
   def create
     @park = Park.new(park_params)
+    @park.business_id = get_user_business.first.id
 
     respond_to do |format|
       if @park.save
