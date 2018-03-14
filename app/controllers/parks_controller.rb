@@ -6,7 +6,7 @@ class ParksController < ApplicationController
   # GET /parks
   # GET /parks.json
   def index
-    @parks = Park.all
+    @parks = Park.where(business_id: get_user_business.first.id)
     @amount_per_hour = Config.last.amount_per_hour
   end
 
