@@ -1,6 +1,7 @@
 class ConfigsController < ApplicationController
   before_action :set_config, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :redirect_business
 
   # GET /configs
   # GET /configs.json
@@ -21,7 +22,14 @@ class ConfigsController < ApplicationController
 
   # GET /configs/new
   def new
-    @config = Config.new
+    # check if business has first been created
+    business = Business.where(user: current_user.id).count
+    if business > 0
+      @config = Config.new
+    else
+      flash[:error] = "Create Business First"
+      redirect_to businesses_url
+    end
   end
 
   # GET /configs/1/edit

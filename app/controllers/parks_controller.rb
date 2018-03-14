@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
   before_action :set_park, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :redirect_business
 
   # GET /parks
   # GET /parks.json

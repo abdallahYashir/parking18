@@ -9,12 +9,14 @@
 			<li class="nav-item">
 				<%= active_link_to "Businesses", businesses_path, class: "nav-item nav-link" %>	
 			</li>
-			<li class="nav-item">
-				<%= active_link_to "Parking", parks_path, class: "nav-item nav-link" %>	
-			</li>
-			<li class="nav-item">
-				<%= active_link_to "Configs", configs_path, class: "nav-item nav-link" %>	
-			</li>
+			<% if user_has_business? %>
+				<li class="nav-item">
+					<%= active_link_to "Parking", parks_path, class: "nav-item nav-link" %>	
+				</li>
+				<li class="nav-item">
+					<%= active_link_to "Configs", configs_path, class: "nav-item nav-link" %>	
+				</li>
+			<% end %>
 		</ul>
 		<div class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
