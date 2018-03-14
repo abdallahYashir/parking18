@@ -1,11 +1,11 @@
 module ApplicationHelper
 
   def get_user_business
-    Business.where(id: current_user.id)
+    Business.where(user_id: current_user.id)
   end
 
   def user_has_business?
-    get_user_business.count > 0
+    !get_user_business.first.nil?
   end
 
   def redirect_business
