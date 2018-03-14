@@ -5,12 +5,18 @@ class ConfigsController < ApplicationController
   # GET /configs
   # GET /configs.json
   def index
-    @configs = Config.all
+    business = Business.where(user: current_user.id).last
+    if !business.nil?
+      @configs = Config.where(business_id: business.id)
+    else
+      @configs = []
+    end
   end
 
   # GET /configs/1
   # GET /configs/1.json
   def show
+    check_access_config params[:id]
   end
 
   # GET /configs/new
@@ -63,6 +69,16 @@ class ConfigsController < ApplicationController
   end
 
   private
+
+    def check_access_config param_id
+      business = Business.where(id: current_user.id).last
+      config = Config.where(business_id: business).last
+      # if length zero redirect_to config
+      unless config == param_id
+        redirect_to configs_url
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_config
       @config = Config.find(params[:id])

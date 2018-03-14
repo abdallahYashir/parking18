@@ -16,8 +16,12 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/new
   def new
-    @business = Business.new
-    logger.debug @business
+    business = Business.where(user: current_user.id)
+    if business.length === 0
+      @business = Business.new
+    else
+      redirect_to businesses_url
+    end
   end
 
   # GET /businesses/1/edit
