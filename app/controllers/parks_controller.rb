@@ -75,7 +75,7 @@ class ParksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def park_params
-      params.require(:park).permit(:number, :time_start, :time_end, :total_amount, :comments, :business_id)
+      params.require(:park).permit(:number, :time_start, :time_end, :total_amount, :comments, :paid, :business_id)
     end
 end
 
